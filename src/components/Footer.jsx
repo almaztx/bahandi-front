@@ -6,7 +6,7 @@ export default function Footer() {
           <div className="pt-10">
             <h2 className="text-2xl font-bold mb-3">BAHANDI</h2>
             <p className="text-gray-400 text-sm">
-              © 2024 ТОО Баханди. Все права защищены
+              © 2026 ТОО Баханди. Все права не защищены
             </p>
           </div>
 

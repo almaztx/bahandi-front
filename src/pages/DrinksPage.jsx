@@ -41,9 +41,11 @@ export default function DrinksPage() {
           {drinks.map((drink, index) => (
             <ProductCard
               key={index}
+              id={index}
               name={drink.name}
               price={drink.price}
               img={drink.img}
+              category="drinks"
             />
           ))}
         </div>

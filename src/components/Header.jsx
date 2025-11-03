@@ -20,7 +20,7 @@ const Header = () => {
           <a href="/drinks" className="py-2">
             Напитки
           </a>
-          <a href="/combo" className="py-2">
+          <a href="/combos" className="py-2">
             Комбо
           </a>
           <button

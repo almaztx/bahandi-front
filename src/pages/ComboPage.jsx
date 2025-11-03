@@ -41,9 +41,11 @@ export default function ComboPage() {
           {combos.map((compo, index) => (
             <ProductCard
               key={index}
+              id={index}
               name={compo.name}
               price={compo.price}
               img={compo.img}
+              category="combos"
             />
           ))}
         </div>

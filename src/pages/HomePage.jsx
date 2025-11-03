@@ -44,9 +44,11 @@ export default function HomePage() {
           {burgers.map((burger, index) => (
             <ProductCard
               key={index}
+              id={index}
               name={burger.name}
               price={burger.price}
               img={burger.img}
+              category="burgers"
             />
           ))}
         </div>
