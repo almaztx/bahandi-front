@@ -17,9 +17,7 @@ function App() {
     //     <Route path="/combos/:id" element={<DetailPage />} />
     //   </Routes>
     // </BrowserRouter>
-    <BrowserRouter>
-      <AppRoute />
-    </BrowserRouter>
+    <AppRoute />
   );
 }
 
