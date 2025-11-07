@@ -11,4 +11,11 @@
 ```bash
 git clone https://github.com/almaztx/bahandi-front.git
 cd bahandi-front
+
+### 2. Установка зависимостей
+```bash
 npm install
+
+### 3. Запуск проекта в режиме разработки
+```bash
+npm run dev
