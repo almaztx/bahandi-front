@@ -1,16 +1,14 @@
-# React + Vite
+# 🌐 Bahandi Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Bahandi Frontend** — это клиентская часть веб-приложения, разработанного в рамках дисциплины **«Разработка клиент-серверных приложений»**.  
+Проект создан с использованием **React** и **Vite** для быстрой, современной и удобной разработки.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Установка и запуск проекта
 
-## React Compiler
-
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Клонирование репозитория
+```bash
+git clone https://github.com/almaztx/bahandi-front.git
+cd bahandi-front
+npm install
