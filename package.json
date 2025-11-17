@@ -2,6 +2,7 @@
   "name": "bahandi-front",
   "private": true,
   "version": "0.0.0",
+  "author": "Almaz",
   "type": "module",
   "scripts": {
     "dev": "vite",
