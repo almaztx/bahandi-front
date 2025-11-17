@@ -11,7 +11,7 @@ const ProductCard = (props) => {
           src={props.image}
           className="w-full aspect-square bg-gray-200 rounded-xl mb-3 flex items-center justify-center"
         />
-        <div className="font-bold text-lg">{props.price} ₸</div>
+        <div className="font-medium text-lg">{props.price} ₸</div>
         <div className="text-sm text-gray-600 mb-3 truncate">{props.name}</div>
       </Link>
       <button

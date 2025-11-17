@@ -1,26 +1,49 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 
 const Header = () => {
   const { totalItems } = useCart();
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get("q") ?? "";
+
+  const handleSearch = (e) => {
+    const value = e.target.value;
+    if (value) {
+      searchParams.set("q", value);
+    } else {
+      searchParams.delete("q");
+    }
+    setSearchParams(searchParams);
+  };
+
   return (
     <header className="bg-[#009746] text-white h-[70px] py-2 px-25 shadow-sm flex justify-between items-center fixed w-screen">
-      <div className="text-2xl font-bold">
-        <a href="/">BAHANDI</a>
+      <div className="flex flex-row gap-4">
+        <a href="/" className="text-3xl font-bold">
+          BAHANDI
+        </a>
+        <input
+          type="search"
+          placeholder="Поиск"
+          value={query}
+          onChange={handleSearch}
+          className="w-full max-w-xs border-b px-2 py-1 focus:outline-none focus:ring tracking-wider focus:ring-green-300"
+        />
       </div>
       <nav className="flex space-x-6 gap-2">
-        <a href="/" className="py-2">
+        <a href="/" className="py-2 hover:text-gray-300">
           Бургеры
         </a>
-        <a href="/drinks" className="py-2">
+        <a href="/drinks" className="py-2 hover:text-gray-300">
           Напитки
         </a>
-        <a href="/combos" className="py-2">
+        <a href="/combos" className="py-2 hover:text-gray-300">
           Комбо
         </a>
         <Link
           to="/cart"
-          className="bg-[#E35A1B] px-6 py-2 rounded-[10px] hover:bg-orange-600 relative"
+          className="bg-[#E35A1B] px-6 py-2 rounded-lg hover:bg-orange-600 relative"
         >
           Корзина
           {totalItems > 0 && (

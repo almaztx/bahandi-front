@@ -62,8 +62,13 @@ export default function DetailPage() {
     ]);
     setNewComment("");
   };
-  if (!item) return <p className="text-center mt-10">Загрузка...</p>;
-
+  if (!item)
+    return (
+      <iframe
+        className="mx-auto mt-20 w-96"
+        src="https://lottie.host/embed/41ca193a-0881-4749-abee-8b6918a205ec/ZYXNjZcsim.lottie"
+      ></iframe>
+    );
   return (
     <main className="container mx-auto py-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

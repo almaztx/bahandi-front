@@ -1,24 +1,19 @@
-import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
-import supabase from "../utils/supabase";
+import useProducts from "../hooks/useProducts";
 
-export default function CombosPage() {
-  const [combos, setCombos] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchCombos = async () => {
-      const { data } = await supabase.from("combos").select();
-      setCombos(data);
-      setLoading(false);
-    };
-    fetchCombos();
-  }, []);
+export default function HomePage() {
+  const { products: combos, loading } = useProducts("combos");
 
   if (loading)
-    return <p className="text-center mt-10 text-gray-500">Загрузка...</p>;
-  if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
+    return (
+      <iframe
+        className="mx-auto mt-20 w-96"
+        src="https://lottie.host/embed/5d900e52-987d-4e35-af79-16f33536f723/qCD2TRMo6y.lottie"
+      ></iframe>
+    );
+  if (!combos.length)
+    return <p className="text-center mt-10 text-gray-500">Ничего не найдено</p>;
+
   return (
     <main className="grow container mx-auto">
       <h1 className="text-3xl font-bold text-[#009746] my-6">Комбо</h1>
