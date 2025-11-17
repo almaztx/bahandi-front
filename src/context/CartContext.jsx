@@ -1,42 +1,67 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useContext, useReducer } from "react";
 
 const CartContext = createContext();
 
-export const useCart = () => useContext(CartContext);
+const initialState = [];
 
-export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-
-  const addToCart = (item) => {
-    setCartItems((prev) => {
-      const existing = prev.find((p) => p.name === item.name);
-      if (existing) {
-        return prev.map((p) =>
-          p.name === item.name ? { ...p, count: p.count + 1 } : p
-        );
+function cartReducer(state, action) {
+  switch (action.type) {
+    case "ADD": {
+      const { id, name, price, image } = action.payload;
+      const exist = state.find((i) => i.id === id);
+      if (exist) {
+        return state.map((i) => (i.id === id ? { ...i, qty: i.qty + 1 } : i));
       }
-      return [...prev, { ...item, count: 1 }];
-    });
+      return [...state, { id, name, price, image, qty: 1 }];
+    }
+    case "REMOVE": {
+      return state.filter((i) => i.id !== action.payload);
+    }
+    case "CLEAR":
+      return [];
+    case "INCREMENT": {
+      return state.map((i) =>
+        i.id === action.payload ? { ...i, qty: i.qty + 1 } : i
+      );
+    }
+    case "DECREMENT": {
+      return state.map((i) =>
+        i.id === action.payload && i.qty > 1 ? { ...i, qty: i.qty - 1 } : i
+      );
+    }
+    default:
+      return state;
+  }
+}
+
+export function CartProvider({ children }) {
+  const [items, dispatch] = useReducer(cartReducer, initialState);
+
+  const addToCart = (product) => dispatch({ type: "ADD", payload: product });
+  const removeFromCart = (id) => dispatch({ type: "REMOVE", payload: id });
+  const clearCart = () => dispatch({ type: "CLEAR" });
+  const increment = (id) => dispatch({ type: "INCREMENT", payload: id });
+  const decrement = (id) => dispatch({ type: "DECREMENT", payload: id });
+
+  const totalPrice = items.reduce((s, i) => s + i.price * i.qty, 0);
+  const totalItems = items.reduce((s, i) => s + i.qty, 0);
+
+  const value = {
+    items,
+    addToCart,
+    removeFromCart,
+    clearCart,
+    increment,
+    decrement,
+    totalPrice,
+    totalItems,
   };
 
-  const removeFromCart = (name) => {
-    setCartItems((prev) => prev.filter((item) => item.name !== name));
-  };
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
+}
 
-  const toggleCart = () => setIsCartOpen((prev) => !prev);
-
-  return (
-    <CartContext.Provider
-      value={{
-        cartItems,
-        addToCart,
-        removeFromCart,
-        isCartOpen,
-        toggleCart,
-      }}
-    >
-      {children}
-    </CartContext.Provider>
-  );
-};
+export function useCart() {
+  const ctx = useContext(CartContext);
+  if (!ctx) throw new Error("useCart внутри CartProvider");
+  return ctx;
+}

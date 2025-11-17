@@ -1,23 +1,16 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import DrinksPage from "./pages/DrinksPage";
-import ComboPage from "./pages/ComboPage";
-import DetailPage from "./pages/DetailPage";
 import AppRoute from "./components/AppRoute";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    // <BrowserRouter>
-    //   <Routes>
-    //     <Route path="/" element={<HomePage />} />
-    //     <Route path="/drinks" element={<DrinksPage />} />
-    //     <Route path="/combos" element={<ComboPage />} />
-    //     <Route path="/burgers/:id" element={<DetailPage />} />
-    //     <Route path="/drinks/:id" element={<DetailPage />} />
-    //     <Route path="/combos/:id" element={<DetailPage />} />
-    //   </Routes>
-    // </BrowserRouter>
-    <AppRoute />
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-1 container mx-auto pt-[70px] pb-8">
+        <AppRoute />
+      </main>
+      <Footer />
+    </div>
   );
 }
 

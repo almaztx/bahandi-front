@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-import "../styles/ProductCard.css";
 
 const ProductDetailCard = (props) => {
   const { addToCart } = useCart();
@@ -8,7 +7,7 @@ const ProductDetailCard = (props) => {
   return (
     <div className="rounded-2xl p-4 border border-gray-200 hover:shadow-md transition-shadow hover:cursor-pointer">
       <img
-        src={props.img}
+        src={props.image}
         className=" aspect-square bg-gray-200 rounded-xl mb-3 flex items-center justify-center mx-auto"
       />
       <div className="font-bold text-lg">{props.price} ₸</div>

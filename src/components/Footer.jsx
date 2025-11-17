@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-[#2c2c2c] text-white px-16 py-10 mt-12 flex justify-between">
+    <footer className="bg-[#2c2c2c] text-white px-25 py-10 flex justify-between">
       <div className="">
         <div className="grid grid-cols-2 gap-30">
           <div className="pt-10">

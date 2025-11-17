@@ -2,18 +2,18 @@ import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import supabase from "../utils/supabase";
 
-export default function HomePage() {
-  const [burgers, setBurgers] = useState([]);
+export default function CombosPage() {
+  const [combos, setCombos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchBurgers = async () => {
-      const { data } = await supabase.from("burgers").select();
-      setBurgers(data);
+    const fetchCombos = async () => {
+      const { data } = await supabase.from("combos").select();
+      setCombos(data);
       setLoading(false);
     };
-    fetchBurgers();
+    fetchCombos();
   }, []);
 
   if (loading)
@@ -21,17 +21,17 @@ export default function HomePage() {
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
   return (
     <main className="grow container mx-auto">
-      <h1 className="text-3xl font-bold text-[#009746] my-6">Бургеры</h1>
+      <h1 className="text-3xl font-bold text-[#009746] my-6">Комбо</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {burgers.map((burger) => (
+        {combos.map((combo) => (
           <ProductCard
-            key={burger.id}
-            id={burger.id}
-            name={burger.name}
-            price={burger.price}
-            image={burger.image}
-            category={burger.category}
+            key={combo.id}
+            id={combo.id}
+            name={combo.name}
+            price={combo.price}
+            image={combo.image}
+            category={combo.category}
           />
         ))}
       </div>
