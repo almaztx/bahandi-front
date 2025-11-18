@@ -13,7 +13,6 @@ export default function ProfilePage() {
             className="w-80 h-80 md:w-96 md:h-96 mx-auto"
             src="https://lottie.host/embed/41ca193a-0881-4749-abee-8b6918a205ec/ZYXNjZcsim.lottie"
             title="Загрузка профиля"
-            frameBorder="0"
             allowFullScreen
           ></iframe>
           <p className="mt-6 text-xl text-gray-600 font-medium animate-pulse">

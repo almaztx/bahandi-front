@@ -12,13 +12,19 @@ export default function HomePage() {
       ></iframe>
     );
   if (!burgers.length)
-    return <p className="text-center mt-10 text-gray-500">Ничего не найдено</p>;
+    return (
+      <div className="text-center py-20">
+        <p className="text-xl text-gray-500">Товары не найдены</p>
+      </div>
+    );
 
   return (
-    <main className="grow container mx-auto">
-      <h1 className="text-3xl font-bold text-[#009746] my-6">Бургеры</h1>
+    <main className="grow container mx-auto px-4 py-8">
+      <h1 className="text-3xl md:text-4xl font-bold text-[#009746] mb-8 text-center md:text-left">
+        Бургеры
+      </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
         {burgers.map((burger) => (
           <ProductCard
             key={burger.id}
@@ -26,7 +32,7 @@ export default function HomePage() {
             name={burger.name}
             price={burger.price}
             image={burger.image}
-            category={burger.category}
+            category={burger.category} // передаём функцию из контекста
           />
         ))}
       </div>
