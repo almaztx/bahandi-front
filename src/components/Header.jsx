@@ -52,6 +52,12 @@ const Header = () => {
             </span>
           )}
         </Link>
+        <Link
+          to="profile"
+          className="bg-[#E35A1B] px-4 py-2 rounded-lg hover:bg-orange-600 relative"
+        >
+          Profile
+        </Link>
       </nav>
     </header>
   );

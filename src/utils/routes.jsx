@@ -4,6 +4,9 @@ import CombosPage from "../pages/CombosPage";
 import DetailPage from "../pages/DetailPage";
 import CartPage from "../pages/CartPage";
 import NotFound from "../pages/NotFound";
+import LoginPage from "../pages/LoginPage";
+import ProfilePage from "../pages/ProfilePage";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 import {
   HOME_PAGE,
@@ -14,6 +17,8 @@ import {
   COMBOS_DETAIL_PAGE,
   CART_PAGE,
   NOT_FOUND_PAGE,
+  LOGIN_PAGE,
+  PROFILE_PAGE,
 } from "./consts";
 
 export const routes = [
@@ -48,5 +53,17 @@ export const routes = [
   {
     path: NOT_FOUND_PAGE,
     element: NotFound,
+  },
+  {
+    path: LOGIN_PAGE,
+    element: LoginPage,
+  },
+  {
+    path: PROFILE_PAGE,
+    element: () => (
+      <ProtectedRoute>
+        <ProfilePage />
+      </ProtectedRoute>
+    ),
   },
 ];
