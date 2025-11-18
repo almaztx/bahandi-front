@@ -1,3 +1,6 @@
+import MainLayout from "../layouts/MainLayout";
+import SecondLayout from "../layouts/SecondLayout";
+
 import HomePage from "../pages/HomePage";
 import DrinksPage from "../pages/DrinksPage";
 import CombosPage from "../pages/CombosPage";
@@ -23,47 +26,58 @@ import {
 
 export const routes = [
   {
-    path: HOME_PAGE,
-    element: HomePage,
+    element: MainLayout,
+    children: [
+      {
+        path: HOME_PAGE,
+        element: HomePage,
+      },
+      {
+        path: DRINKS_PAGE,
+        element: DrinksPage,
+      },
+      {
+        path: COMBOS_PAGE,
+        element: CombosPage,
+      },
+      {
+        path: BURGER_DETAIL_PAGE,
+        element: DetailPage,
+      },
+      {
+        path: DRINKS_DETAIL_PAGE,
+        element: DetailPage,
+      },
+      {
+        path: COMBOS_DETAIL_PAGE,
+        element: DetailPage,
+      },
+      {
+        path: CART_PAGE,
+        element: CartPage,
+      },
+      {
+        path: PROFILE_PAGE,
+        element: () => (
+          <ProtectedRoute>
+            <ProfilePage />
+          </ProtectedRoute>
+        ),
+      },
+    ],
   },
+
   {
-    path: DRINKS_PAGE,
-    element: DrinksPage,
-  },
-  {
-    path: COMBOS_PAGE,
-    element: CombosPage,
-  },
-  {
-    path: BURGER_DETAIL_PAGE,
-    element: DetailPage,
-  },
-  {
-    path: DRINKS_DETAIL_PAGE,
-    element: DetailPage,
-  },
-  {
-    path: COMBOS_DETAIL_PAGE,
-    element: DetailPage,
-  },
-  {
-    path: CART_PAGE,
-    element: CartPage,
-  },
-  {
-    path: NOT_FOUND_PAGE,
-    element: NotFound,
-  },
-  {
-    path: LOGIN_PAGE,
-    element: LoginPage,
-  },
-  {
-    path: PROFILE_PAGE,
-    element: () => (
-      <ProtectedRoute>
-        <ProfilePage />
-      </ProtectedRoute>
-    ),
+    element: SecondLayout,
+    children: [
+      {
+        path: NOT_FOUND_PAGE,
+        element: NotFound,
+      },
+      {
+        path: LOGIN_PAGE,
+        element: LoginPage,
+      },
+    ],
   },
 ];
