@@ -24,11 +24,11 @@ const Header = () => {
           BAHANDI
         </a>
         <input
-          type="search"
+          type="text"
           placeholder="Поиск"
           value={query}
           onChange={handleSearch}
-          className="w-full max-w-xs border-b px-2 py-1 focus:outline-none focus:ring tracking-wider focus:ring-green-300"
+          className="w-full max-w-xs border-b px-2 py-1 focus:outline-none tracking-wider"
         />
       </div>
       <nav className="flex space-x-6 gap-2">

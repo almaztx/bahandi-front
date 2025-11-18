@@ -3,6 +3,7 @@ import DrinksPage from "../pages/DrinksPage";
 import CombosPage from "../pages/CombosPage";
 import DetailPage from "../pages/DetailPage";
 import CartPage from "../pages/CartPage";
+import NotFound from "../pages/NotFound";
 
 import {
   HOME_PAGE,
@@ -12,6 +13,7 @@ import {
   DRINKS_DETAIL_PAGE,
   COMBOS_DETAIL_PAGE,
   CART_PAGE,
+  NOT_FOUND_PAGE,
 } from "./consts";
 
 export const routes = [
@@ -42,5 +44,9 @@ export const routes = [
   {
     path: CART_PAGE,
     element: CartPage,
+  },
+  {
+    path: NOT_FOUND_PAGE,
+    element: NotFound,
   },
 ];
