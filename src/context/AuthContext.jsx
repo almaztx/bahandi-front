@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import supabase from "../utils/supabase";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
@@ -7,6 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -36,6 +38,7 @@ export const AuthProvider = ({ children }) => {
       password,
     });
     if (error) throw error;
+    navigate("/profile");
   };
 
   const signInWithGoogle = async () => {

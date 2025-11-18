@@ -15,7 +15,7 @@ export default function CartPage() {
           to="/"
           className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg transition"
         >
-          ← Назад
+          Назад
         </Link>
       </div>
     );

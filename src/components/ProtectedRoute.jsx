@@ -5,7 +5,12 @@ export default function ProtectedRoute({ children }) {
   const { user, loading } = useAuth();
 
   if (loading) {
-    return <div>Загрузка...</div>;
+    return (
+      <iframe
+        className="mx-auto mt-20 w-96"
+        src="https://lottie.host/embed/41ca193a-0881-4749-abee-8b6918a205ec/ZYXNjZcsim.lottie"
+      ></iframe>
+    );
   }
 
   // Если не авторизован — кидаем на логин

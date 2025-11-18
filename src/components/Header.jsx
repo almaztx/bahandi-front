@@ -41,23 +41,25 @@ const Header = () => {
         <a href="/combos" className="py-2 hover:text-gray-300">
           Комбо
         </a>
-        <Link
-          to="/cart"
-          className="bg-[#E35A1B] px-6 py-2 rounded-lg hover:bg-orange-600 relative"
-        >
-          Корзина
-          {totalItems > 0 && (
-            <span className="absolute -top-2 -right-2 bg-white text-green-700 text-sm rounded-full w-5 h-5 flex items-center justify-center font-bold">
-              {totalItems}
-            </span>
-          )}
-        </Link>
-        <Link
-          to="profile"
-          className="bg-[#E35A1B] px-4 py-2 rounded-lg hover:bg-orange-600 relative"
-        >
-          Profile
-        </Link>
+        <div className="flex gap-2">
+          <Link
+            to="/cart"
+            className="bg-[#E35A1B] px-6 py-2 rounded-lg hover:bg-orange-600 relative"
+          >
+            Корзина
+            {totalItems > 0 && (
+              <span className="absolute -top-2 -right-2 bg-white text-green-700 text-sm rounded-full w-5 h-5 flex items-center justify-center font-bold">
+                {totalItems}
+              </span>
+            )}
+          </Link>
+          <Link
+            to="profile"
+            className="bg-[#1b5ae3] px-4 py-2 rounded-lg hover:bg-blue-700 relative"
+          >
+            {"Профиль"}
+          </Link>
+        </div>
       </nav>
     </header>
   );

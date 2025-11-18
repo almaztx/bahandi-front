@@ -56,14 +56,6 @@ export const routes = [
         path: CART_PAGE,
         element: CartPage,
       },
-      {
-        path: PROFILE_PAGE,
-        element: () => (
-          <ProtectedRoute>
-            <ProfilePage />
-          </ProtectedRoute>
-        ),
-      },
     ],
   },
 
@@ -77,6 +69,14 @@ export const routes = [
       {
         path: LOGIN_PAGE,
         element: LoginPage,
+      },
+      {
+        path: PROFILE_PAGE,
+        element: () => (
+          <ProtectedRoute>
+            <ProfilePage />
+          </ProtectedRoute>
+        ),
       },
     ],
   },
