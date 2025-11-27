@@ -2,40 +2,40 @@ import ProductCard from "../components/ProductCard";
 import useProducts from "../hooks/useProducts";
 
 export default function HomePage() {
-  const { products: burgers, loading } = useProducts("burgers");
+    const { products: burgers, loading } = useProducts("burgers");
 
-  if (loading)
+    if (loading)
+        return (
+            <iframe
+                className="mx-auto mt-20"
+                src="https://lottie.host/embed/13ffe9bb-91b5-4de1-bc20-851b67d6f69e/HCR4mj6OoZ.lottie"
+            ></iframe>
+        );
+    if (!burgers.length)
+        return (
+            <div className="text-center py-20">
+                <p className="text-xl text-gray-500">Товары не найдены</p>
+            </div>
+        );
+
     return (
-      <iframe
-        className="mx-auto mt-20 w-96"
-        src="https://lottie.host/embed/5d900e52-987d-4e35-af79-16f33536f723/qCD2TRMo6y.lottie"
-      ></iframe>
-    );
-  if (!burgers.length)
-    return (
-      <div className="text-center py-20">
-        <p className="text-xl text-gray-500">Товары не найдены</p>
-      </div>
-    );
+        <main className="grow container mx-auto px-4 py-8">
+            <h1 className="text-3xl md:text-4xl font-bold text-[#009746] mb-8 text-center md:text-left">
+                Бургеры
+            </h1>
 
-  return (
-    <main className="grow container mx-auto px-4 py-8">
-      <h1 className="text-3xl md:text-4xl font-bold text-[#009746] mb-8 text-center md:text-left">
-        Бургеры
-      </h1>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-        {burgers.map((burger) => (
-          <ProductCard
-            key={burger.id}
-            id={burger.id}
-            name={burger.name}
-            price={burger.price}
-            image={burger.image}
-            category={burger.category} // передаём функцию из контекста
-          />
-        ))}
-      </div>
-    </main>
-  );
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+                {burgers.map((burger) => (
+                    <ProductCard
+                        key={burger.id}
+                        id={burger.id}
+                        name={burger.name}
+                        price={burger.price}
+                        image={burger.image}
+                        category={burger.category}
+                    />
+                ))}
+            </div>
+        </main>
+    );
 }
