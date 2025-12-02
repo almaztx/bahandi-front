@@ -8,3 +8,7 @@ export const CART_PAGE = "/cart";
 export const NOT_FOUND_PAGE = "*";
 export const LOGIN_PAGE = "/login";
 export const PROFILE_PAGE = "/profile";
+
+export const PROFILE = "/nodeprofile";
+export const LOGIN_FORM = "/nodelogin";
+export const SIGNUP_FORM = "/nodesignup";
